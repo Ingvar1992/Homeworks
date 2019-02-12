@@ -1,0 +1,107 @@
+@bordersColor: #000;
+@fontColorOne: #b2b2b2;
+@fontColorTwo: #f00;
+@fontColorMedia: #000;
+
+.block-properties(@h-size, @paddings: 0) {
+  width: @h-size;
+  padding: @paddings;
+}
+
+.main-container {
+  .block-properties(500px, 20px);
+  margin: 0 auto;
+  border: 1px solid @bordersColor;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+
+  p {
+    margin: 0;
+    padding: 0;
+    color: @fontColorOne;
+    opacity: 0.5;
+    text-align: justify;
+    -webkit-animation: color-shift 5s linear infinite alternate;
+    -o-animation: color-shift 5s linear infinite alternate;
+    animation: color-shift 5s linear infinite alternate;
+
+    -webkit-transition: all 3s linear;
+    -moz-transition: all 3s linear;
+    -ms-transition: all 3s linear;
+    -o-transition: all 3s linear;
+    transition: all 3s linear;
+
+    @media screen and (max-width: 600px) {
+      -webkit-animation: none;
+      -o-animation: none;
+      animation: none;
+
+      color: @fontColorMedia;
+      background: #ff6271;
+      opacity: 1;
+    }
+  }
+
+  .form-container {
+    .block-properties(300px, 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 1px solid @bordersColor;
+    background: #fff;
+    text-align: center;
+
+    -webkit-transition: all 3s linear;
+    -moz-transition: all 3s linear;
+    -ms-transition: all 3s linear;
+    -o-transition: all 3s linear;
+    transition: all 3s linear;
+
+    input, select {
+      width: 200px;
+      margin-bottom: 5px;
+    }
+
+    button {
+      -webkit-box-shadow: 0 -3px 3px rgba(0, 0, 0, 0.8);
+      -moz-box-shadow: 0 -3px 3px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+
+      -webkit-transition: all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+      -ms-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      transition: all 0.5s linear;
+
+      &:hover {
+        cursor: pointer;
+        -webkit-transform: scale(1.05) translateY(-2px);
+        -moz-transform: scale(1.05) translateY(-2px);
+        -ms-transform: scale(1.05) translateY(-2px);
+        -o-transform: scale(1.05) translateY(-2px);
+        transform: scale(1.05) translateY(-2px);
+
+        -webkit-box-shadow: 0 4px 3px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0 4px 3px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 4px 3px rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      z-index: -1;
+    }
+  }
+}
+
+@keyframes color-shift {
+  from {color: @fontColorOne}
+  to {color: @fontColorTwo}
+}
